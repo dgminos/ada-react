@@ -1,0 +1,12 @@
+header {
+    padding: 70px;
+    background-image: url('../react-galaxia.png');
+    background-attachment: fixed;
+    color: azure;
+}
+h1 {
+    -webkit-text-stroke: 1px black;
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
+    font-size: 2.7rem;
+    font-weight: 900;
+}

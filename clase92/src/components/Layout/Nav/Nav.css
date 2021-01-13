@@ -1,0 +1,13 @@
+.navList {
+    display: flex;
+    list-style: none; 
+    width: 500px;
+    justify-content: space-between;
+    padding: 0;
+}
+nav {
+    display: flex;
+    justify-content: center;  
+    margin-top: 25px;  
+    
+}

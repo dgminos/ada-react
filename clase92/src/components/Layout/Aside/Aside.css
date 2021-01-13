@@ -1,0 +1,7 @@
+aside {
+    width: 25%;
+    display: inline-block;
+}
+.ulAsideItems {
+    list-style: none;
+}
