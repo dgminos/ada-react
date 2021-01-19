@@ -1,0 +1,28 @@
+.aside {
+    background-color: rgb(69, 64, 88);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    display: inline-block;
+    width: 20%;
+    padding: 20px;
+}
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.accordion-body a {
+    color: rgb(175, 174, 174);
+    text-decoration: none;
+}
+
+.accordion-button {
+    background-color:  rgb(69, 64, 88);
+}
+
+.accordion-button:focus {
+    background-color:  rgb(69, 64, 88);
+}
