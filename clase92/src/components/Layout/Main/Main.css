@@ -1,4 +1,6 @@
 main {
     width: 75%;
     display: inline-block;
+    background-color: coral;
+    margin-top: 25px;
 }
