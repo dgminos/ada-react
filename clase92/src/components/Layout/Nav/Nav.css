@@ -9,5 +9,6 @@ nav {
     display: flex;
     justify-content: center;  
     margin-top: 25px;  
+    background-color: cadetblue;
     
 }
