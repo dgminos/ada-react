@@ -1,17 +1,44 @@
-import { Header, Aside, Footer } from './components';
-//import './layout.css'
+// import { Header, Aside, Footer } from './components';
+// import './styles.css'
 
-const Layout = ({ children }) => {
+// const Layout = ({ children }) => {
+//     return (
+//         <div className="position">
+//             <Aside />
+//             <div className="main">
+//                 <Header />
+//                 {children}
+//                 <Footer />
+//             </div>
+//         </div>
+//     )
+// }
+
+// export { Layout }
+
+import React from 'react'
+import { Header, Footer, Aside } from './components'
+import './styles.css'
+
+const Layout = ({ children, hideHeader, hideAside, hideFooter }) => {
+
     return (
-        <div className="position">
-            <Aside />
-            <div className="main">
-                <Header />
+        <div className='layout'>
+            { !hideAside && <Aside />}
+
+            <div className='contenedor'>
+                {!hideHeader && <Header />}
                 {children}
-                <Footer />
+                {!hideFooter && <Footer />}
             </div>
         </div>
     )
 }
 
-export { Layout }
+Layout.defaultProps = {
+    hideHeader: false,
+    hideAside: false,
+    hideFooter: false
+}
+
+export default Layout
