@@ -14,7 +14,11 @@ const Nav = () => {
                 <li className="navListItem">
                     Contacto
                 </li>
+                <li className="login">
+                    Login
+                </li>
             </ul>
+
         </nav>
     );
 }

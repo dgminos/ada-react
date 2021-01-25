@@ -1,6 +1,6 @@
 header {
     padding: 70px;
-    background-image: url('../react-galaxia.png');
+    background-image: url('./react-galaxia.png');
     background-attachment: fixed;
     color: azure;
 }

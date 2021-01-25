@@ -1,17 +1,16 @@
 import React from 'react';
-import Header from './Header';
-import Nav from './Nav';
-import Main from './Main';
-import Aside from './Aside';
-import Footer from './Footer';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Aside from './components/Aside';
+import Footer from './components/Footer';
 
-const Layout = () => {
+const Layout = ({ children }) => {
     return (
         <>
             <Header />
             <Nav />
 
-            <Main />
+            {children}
             <Aside />
 
             <Footer />
