@@ -1,16 +1,16 @@
 import React from 'react'
-import { useMath } from '../../hooks'
 import Layout from '../../Layout'
 import Main from '../../Main'
+import { LikeButton } from '../../components'
 
 const Dashboard = () => {
-
-    const { calcularIva } = useMath()
 
     return (
         <Layout>
             <Main>
                 <h1>Dashboard</h1>
+
+                <LikeButton />
             </Main>
         </Layout>
     )

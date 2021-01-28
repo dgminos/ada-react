@@ -5,19 +5,20 @@ import { Grid3x3GapFill } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import { useHistory } from "react-router-dom";
 import avatar from "../../../../../assets/img/avatar-1.jpg";
-
+import menuItems from './data'
 
 const NavBar = () => {
-
-    const { goBack } = useHistory()
+    const { goBack } = useHistory();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul>
+                    <ul className="navbar-nav mb-2 mb-lg-0 me-3">
                         <li>
-                            <button className="btn" onClick={goBack}><ArrowLeft /></button>
+                            <button className="btn" onClick={goBack}>
+                                <ArrowLeft />
+                            </button>
                         </li>
                     </ul>
                     <form className="d-flex">
@@ -49,11 +50,11 @@ const NavBar = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                     </form>
-                    <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <ul className="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
                         <li className="nav-item dropdown">
                             <a
                                 className="nav-link dropdown-toggle"
-                                href="#!"
+                                href="#"
                                 id="navbarDropdown"
                                 role="button"
                                 data-bs-toggle="dropdown"
@@ -62,45 +63,40 @@ const NavBar = () => {
                                 English
               </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a className="dropdown-item" href="#!">
-                                        Action
-                  </a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#!">
-                                        Another action
-                  </a>
-                                </li>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#!">
-                                        Something else here
-                  </a>
-                                </li>
+
+                                {menuItems.map(({ href, text, className }) => {
+
+                                    return (
+                                        <li className={`dropdown-item ${className}`}>
+                                            <a href={href}>
+                                                {text}
+                                            </a>
+                                        </li>
+                                    )
+
+                                })}
+
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#!">
+                            <a className="nav-link active" aria-current="page" href="#">
                                 <Bell />
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#!">
+                            <a className="nav-link" href="#">
                                 <Grid3x3GapFill />
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#!">
+                            <a className="nav-link" href="#">
                                 <Gear />
                             </a>
                         </li>
                         <li className="nav-item dropdown">
                             <a
-                                className="nav-link dropdown-toggle"
-                                href="#!"
+                                className="nav-link dropdown-toggle d-flex align-items-center"
+                                href="#"
                                 id="navbarDropdown"
                                 role="button"
                                 data-bs-toggle="dropdown"
@@ -116,12 +112,12 @@ const NavBar = () => {
               </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a className="dropdown-item" href="#!">
+                                    <a className="dropdown-item" href="#">
                                         Action
                   </a>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="#!">
+                                    <a className="dropdown-item" href="#">
                                         Another action
                   </a>
                                 </li>
@@ -129,7 +125,7 @@ const NavBar = () => {
                                     <hr className="dropdown-divider" />
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="#!">
+                                    <a className="dropdown-item" href="#">
                                         Something else here
                   </a>
                                 </li>
