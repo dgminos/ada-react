@@ -1,9 +1,13 @@
 import { P } from './components'
+import { Collapse } from './components'
 import './App.css';
 
 const App = () => {
   return (
-    <P />
+    <>
+      <P />
+      <Collapse />
+    </>
   )
 }
 
