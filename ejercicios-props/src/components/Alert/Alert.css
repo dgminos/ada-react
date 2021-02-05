@@ -1,0 +1,27 @@
+.info {
+    color: #07d5f5; 
+    background-color: #d1ecf0;
+}
+
+.danger {
+    color:  #f5041c;;
+    background-color: #d6cacc;
+}
+
+.success {
+    color:  #04f704;;
+    background-color: #d8e4d8;
+}
+
+.warning {
+    color:  #f58904;;
+    background-color: #e2d9cf;
+}
+ p {
+     padding: 10px;
+     margin-left: 250px;
+     margin-right: 250px;
+     
+ } 
+
+ 
