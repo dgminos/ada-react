@@ -15,7 +15,7 @@ const Counter = () => {
     return (
         <>
             <button className='btn' onClick={increase}>+</button>
-            <input placeholder='Coloque un número' value={count} />
+            <input placeholder='Write a number' value={count} />
             <button className='btn' onClick={decrease}>-</button>
         </>
     )

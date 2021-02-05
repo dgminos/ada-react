@@ -27,9 +27,10 @@
 
 // export { Aside }
 
-import React from 'react'
-import { Logo } from './components'
-import './styles.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Logo } from "./components";
+import "./styles.css";
 
 const Aside = () => {
     return (
@@ -38,22 +39,33 @@ const Aside = () => {
                 <div className="accordion-item">
                     <Logo />
                     <h2 className="accordion-header" id="headingOne">
-                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button
+                            className="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                        >
                             Navigation
-                        </button>
+            </button>
                     </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div
+                        id="collapseOne"
+                        className="accordion-collapse collapse show"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                    >
                         <div className="accordion-body">
-                            <a href="#!">Analytics</a>
-                            <a href="#!">CRM</a>
-                            <a href="#!">ECommerce</a>
-                            <a href="#!">Projects</a>
+                            <Link to="/">Inicio</Link>
+                            <Link to="/users">Usuarios</Link>
+                            <Link to="/products">Productos</Link>
                         </div>
                     </div>
                 </div>
             </div>
         </aside>
-    )
-}
+    );
+};
 
-export { Aside }
+export { Aside };

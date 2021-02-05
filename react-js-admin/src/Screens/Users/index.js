@@ -2,30 +2,31 @@ import React, { useState } from "react";
 import Layout from "../../Layout";
 import Main from "../../Main";
 import data from "./data";
-import { AddUsersForm } from './components'
+import { AddUsersForm } from "./components";
 
 const Users = () => {
-
-    const [inhabitants, setInhabitants] = useState(data)
+    const [inhabitants, setInhabitants] = useState(data);
 
     const Add = (newUser) => {
+        const { id, name, age, image, height } = newUser;
 
-        const { id, name, age, image, height } = newUser
+        setInhabitants([
+            ...inhabitants,
+            {
+                id: id,
+                name: name,
+                age: age,
+                image: image,
+                height: height,
+            },
+        ]);
+    };
 
-        setInhabitants([...inhabitants, {
-            id: id,
-            name: name,
-            age: age,
-            image: image,
-            height: height
-        }])
-    }
-
-    console.log(inhabitants)
+    console.log(inhabitants);
 
     return (
-        <Layout id={15}>
-            <Main>
+        <Layout title="Usuarios">
+            <Main showSettings>
                 <h1>Users</h1>
 
                 <AddUsersForm handleAddUser={Add} />
@@ -46,13 +47,14 @@ const Users = () => {
                                 <tr>
                                     <td>{id}</td>
                                     <td>{name}</td>
-                                    <td><img src={thumbnail} height="80" alt="profile" /></td>
+                                    <td>
+                                        <img src={thumbnail} height="80" alt="profile" />
+                                    </td>
                                     <td>{age}</td>
                                     <td>{height}</td>
                                 </tr>
-                            )
+                            );
                         })}
-
                     </tbody>
                 </table>
             </Main>

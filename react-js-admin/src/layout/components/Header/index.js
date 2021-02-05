@@ -2,11 +2,12 @@ import React from "react";
 import { NavBar } from "./components";
 import "./styles.css";
 
-const Header = () => {
+const Header = (props) => {
+    const { title } = props;
 
     return (
         <header className="header">
-            <NavBar />
+            <NavBar title={title} />
         </header>
     );
 };

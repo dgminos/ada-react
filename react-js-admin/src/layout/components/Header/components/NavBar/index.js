@@ -5,10 +5,12 @@ import { Grid3x3GapFill } from "react-bootstrap-icons";
 import { Gear } from "react-bootstrap-icons";
 import { useHistory } from "react-router-dom";
 import avatar from "../../../../../assets/img/avatar-1.jpg";
-import menuItems from './data'
+import menuItems from "./data";
 
-const NavBar = () => {
+const NavBar = (props) => {
     const { goBack } = useHistory();
+
+    const { title } = props;
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -21,6 +23,7 @@ const NavBar = () => {
                             </button>
                         </li>
                     </ul>
+                    <span class="navbar-text">{title}</span>
                     <form className="d-flex">
                         <div className="input-group">
                             <span className="input-group-text" id="basic-addon1">
@@ -63,19 +66,13 @@ const NavBar = () => {
                                 English
               </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-
                                 {menuItems.map(({ href, text, className }) => {
-
                                     return (
                                         <li className={`dropdown-item ${className}`}>
-                                            <a href={href}>
-                                                {text}
-                                            </a>
+                                            <a href={href}>{text}</a>
                                         </li>
-                                    )
-
+                                    );
                                 })}
-
                             </ul>
                         </li>
                         <li className="nav-item">
