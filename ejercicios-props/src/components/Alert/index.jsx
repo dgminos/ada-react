@@ -27,10 +27,15 @@ const Alert = ({ status, mensaje }) => {
     }
 
     return (
-        <p className={status}>
-            {icon}
-            {mensaje}
-        </p>
+        <div className={`container ${status}`}>
+            <span className='icon'>
+                {icon}
+            </span>
+            <span className='message'>
+                {mensaje}
+            </span>
+
+        </div>
     )
 }
 export default Alert 

@@ -1,27 +1,54 @@
+.container {
+    padding: 10px;
+    margin-left: 250px;
+    margin-right: 250px;
+    
+} 
+
+.icon {
+    margin-right: 10px;
+}
+
+.message {
+    color: black;
+}
+
 .info {
-    color: #07d5f5; 
+   
     background-color: #d1ecf0;
 }
 
+.info .icon {
+    color: #07d5f5; 
+}
+
 .danger {
-    color:  #f5041c;;
+  
     background-color: #d6cacc;
 }
 
+.danger .icon {
+    color:  #f5041c;;
+}
+
 .success {
-    color:  #04f704;;
     background-color: #d8e4d8;
+}
+.success .icon {
+    color:  #04f704;
+    
 }
 
 .warning {
-    color:  #f58904;;
     background-color: #e2d9cf;
 }
- p {
-     padding: 10px;
-     margin-left: 250px;
-     margin-right: 250px;
-     
- } 
+
+.warning .icon {
+    color:  #f58904;
+
+}
+
+
+
 
  
