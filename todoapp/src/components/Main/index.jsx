@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Header } from './components'
+import './main.css'
 
 const Main = ({ children, title, showAddButton }) => {
     return (
