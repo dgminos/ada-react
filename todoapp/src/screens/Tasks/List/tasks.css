@@ -1,4 +1,4 @@
-.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+  .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
     width: 100%;
     padding-right: 12px;
     padding-left: 12px;
@@ -6,12 +6,13 @@
     margin-left: auto;
 }
 
+
 .row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+     -ms-flex-wrap: wrap;
+    flex-wrap: wrap; 
     margin-right: -12px;
     margin-left: -12px;
 }
@@ -21,18 +22,26 @@
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
-}
+} 
 
 .board {
-    display: block;
-    white-space: nowrap;
-    overflow-x: auto;
+    display: flex;
+     white-space: nowrap; 
+    overflow-x: auto; 
 }
 
 h5 {
     background-color: #f1f3fa;
     padding: 1rem;
     margin: 0 -1rem;
+    align-items: center;
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 .tasks {
@@ -43,6 +52,11 @@ h5 {
     vertical-align: top;
     margin-bottom: 24px;
     border-radius: .25rem;
+}
+
+.task-list-items {
+    min-height: 100px;
+    position: relative;
 }
 
 .tasks .task-header {
@@ -61,10 +75,24 @@ h5 {
 }
 
 .card {
-    border: none;
     -webkit-box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
     box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
     margin-bottom: 24px;
+    
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #eef2f7;
+        border-radius: .25rem;
 }
 
 .p-3 {
@@ -84,7 +112,7 @@ h5 {
 }
 
 .mt-2, .my-2 {
-    margin-top: .75rem!important;
+    margin-top: -0.25rem!important;
 }
 
 h5, h6 {
@@ -100,3 +128,9 @@ h5 {
     vertical-align: middle!important;
 }
 
+.tasks.tasks:not(:last-child) {
+    margin-right: 1.25rem;
+}
+
+
+  

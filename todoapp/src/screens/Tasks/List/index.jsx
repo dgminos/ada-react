@@ -1,42 +1,84 @@
 import React, { useState, useEffect } from 'react'
 import { Layout, Main } from '../../../components'
-// import './tasks.css'
-import Api from '../../../utils/api'
+import './tasks.css'
+import { tasksApi } from './api'
+import { Card } from '../Card'
 
 
 const List = () => {
+    const [pendiente, setPendiente] = useState([])
+    const [realizada, setRealizada] = useState([])
+    const [cancelada, setCancelada] = useState([])
 
-    const [tareas, setTareas] = useState([]);
 
     useEffect(() => {
-        Api.get().then((response) => setTareas(response));
+        tasksApi.get().then((response => {
+            setPendiente(response.filter(t => t.estado == 'pendiente'))
+            setRealizada(response.filter(t => t.estado == 'realizada'))
+            setCancelada(response.filter(t => t.estado == 'cancelada'))
+        }))
     }, []);
 
     return (
         <Layout>
             <Main title="Tareas">
-                <div className='container-fluid'>
+                <div className='container mt-5'>
                     <div className='row'>
-                        <div className='col-12'>
+                        <div className='col-4'>
                             <div className='board'>
                                 <div className="tasks">
-                                    <h5 className="mt-0 task-header">TODO (3)</h5>
-                                    <div id="task-list-one" className="task-list-items">
-                                        <div className="card mb-0">
-                                            <div className="card-header">
-                                                Tasks
-                                                    </div>
-                                            {tareas.map(({ titulo, fecha, descripcion, asignado }) => {
-                                                return (
-
-                                                    <div className="card-body p-3">
-                                                        <h5 className="card-title mt-2 mb-2">{titulo}</h5>
-                                                        <h6 className="float-right text-muted">{fecha}</h6>
-                                                        <p className=" card-text mb-0 pr-2 text-nowrap mb-2 d-inline-block">{descripcion}</p>
-                                                        <span className=" card-text align-middle"><b>{asignado}</b></span>
-                                                    </div>
-                                                )
-                                            })}
+                                    <a className="fs-5 text-decoration-none text-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">PENDIENTES ({pendiente.length})</a>
+                                    <div className="collapse multi-collapse" id="multiCollapseExample1">
+                                        <div id="task-list-one" className="task-list-items">
+                                            {pendiente.map(({ asignada, descripcion, fecha, id, titulo }) => (
+                                                <Card
+                                                    asignada={asignada}
+                                                    descripcion={descripcion}
+                                                    fecha={fecha}
+                                                    id={id}
+                                                    key={id}
+                                                    titulo={titulo} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-4'>
+                            <div className='board'>
+                                <div className="tasks">
+                                    <a className="fs-5 text-decoration-none text-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">REALIZADAS ({realizada.length})</a>
+                                    <div className="collapse multi-collapse" id="multiCollapseExample1">
+                                        <div id="task-list-two" className="task-list-items">
+                                            {realizada.map(({ asignada, descripcion, fecha, id, titulo }) => (
+                                                <Card
+                                                    asignada={asignada}
+                                                    descripcion={descripcion}
+                                                    fecha={fecha}
+                                                    id={id}
+                                                    key={id}
+                                                    titulo={titulo} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-4'>
+                            <div className='board'>
+                                <div className="tasks">
+                                    <a className="fs-5 text-decoration-none text-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">CANCELADAS ({cancelada.length})</a>
+                                    <div className="collapse multi-collapse" id="multiCollapseExample1">
+                                        <div id="task-list-three" className="task-list-items">
+                                            {cancelada.map(({ asignada, descripcion, fecha, id, titulo }) => (
+                                                <Card
+                                                    asignada={asignada}
+                                                    descripcion={descripcion}
+                                                    fecha={fecha}
+                                                    id={id}
+                                                    key={id}
+                                                    titulo={titulo} />
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
@@ -46,8 +88,7 @@ const List = () => {
                 </div>
             </Main>
         </Layout>
-
     )
 }
 
-export { List }
+export { List };

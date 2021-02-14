@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout, Main } from '../../components';
-import { AddTaskForm } from './AddTaskForm'
+import { AddTaskForm } from './AddTaskForm';
+
 import { List } from './List'
-import './tasks.css'
+
 
 
 const Tasks = () => {
