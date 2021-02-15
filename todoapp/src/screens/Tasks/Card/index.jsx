@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
+
 import { api } from '../../../utils/api'
-import './card.css'
 //import './tasks.css'
 
-const Card = ({ id, titulo, fecha, descripcion, asignada, estado }) => {
+const Card = ({ id, titulo, fecha, descripcion, asignada, estado, onTaskStatusChange }) => {
 
-    const [taskStatus, setTaskStatus] = useState(estado) //taskStatus=variable de estado;setTaskStatus=función para actualizar el estado;useState=nos da el estado actual al renderizar
+    const handleClick = (newStatus) => {
+        api.patch(`/tasks/${id}.json`, { estado: newStatus })
+            .then(response => {
+                if (response.statusText === 'OK') {
 
-    const handleClick = (taskStatus) => {
-        api.patch(`/tasks/${id}.json`, { estado: taskStatus })
-            .then(response => setTaskStatus(response.data.estado))
-
+                    onTaskStatusChange()
+                }
+            })
     }
 
     const colorearCard = () => {
-        switch (taskStatus) {
+        switch (estado) {
             case 'pendiente':
                 return 'bg-info';
             case 'realizada':

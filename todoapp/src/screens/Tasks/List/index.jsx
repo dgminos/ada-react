@@ -10,12 +10,16 @@ const List = () => {
     const [realizada, setRealizada] = useState([])
     const [cancelada, setCancelada] = useState([])
 
-    useEffect(() => {
+    const fetchTasks = () => {
         tasksApi.get().then((response => {
             setPendiente(response.filter(t => t.estado == 'pendiente'))
             setRealizada(response.filter(t => t.estado == 'realizada'))
             setCancelada(response.filter(t => t.estado == 'cancelada'))
         }))
+    }
+
+    useEffect(() => {
+        fetchTasks()
     }, []);
 
     return (
@@ -38,6 +42,7 @@ const List = () => {
                                                     key={id}
                                                     titulo={titulo}
                                                     estado={estado}
+                                                    onTaskStatusChange={fetchTasks}
                                                 />
                                             ))}
                                         </div>
@@ -59,7 +64,8 @@ const List = () => {
                                                     id={id}
                                                     key={id}
                                                     titulo={titulo}
-                                                    estado={estado} />
+                                                    estado={estado}
+                                                    onTaskStatusChange={fetchTasks} />
                                             ))}
                                         </div>
                                     </div>
@@ -80,7 +86,8 @@ const List = () => {
                                                     id={id}
                                                     key={id}
                                                     titulo={titulo}
-                                                    estado={estado} />
+                                                    estado={estado}
+                                                    onTaskStatusChange={fetchTasks} />
                                             ))}
                                         </div>
                                     </div>
