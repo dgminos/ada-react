@@ -10,7 +10,6 @@ const List = () => {
     const [realizada, setRealizada] = useState([])
     const [cancelada, setCancelada] = useState([])
 
-
     useEffect(() => {
         tasksApi.get().then((response => {
             setPendiente(response.filter(t => t.estado == 'pendiente'))
@@ -24,60 +23,64 @@ const List = () => {
             <Main title="Tareas">
                 <div className='container mt-5'>
                     <div className='row'>
-                        <div className='col-4'>
+                        <div className='col-4 col-pendiente'>
                             <div className='board'>
                                 <div className="tasks">
                                     <a className="fs-5 text-decoration-none text-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">PENDIENTES ({pendiente.length})</a>
                                     <div className="collapse multi-collapse" id="multiCollapseExample1">
                                         <div id="task-list-one" className="task-list-items">
-                                            {pendiente.map(({ asignada, descripcion, fecha, id, titulo }) => (
+                                            {pendiente.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
                                                 <Card
                                                     asignada={asignada}
                                                     descripcion={descripcion}
                                                     fecha={fecha}
                                                     id={id}
                                                     key={id}
-                                                    titulo={titulo} />
+                                                    titulo={titulo}
+                                                    estado={estado}
+                                                />
                                             ))}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='col-4'>
+                        <div className='col-4 col-realizada'>
                             <div className='board'>
                                 <div className="tasks">
                                     <a className="fs-5 text-decoration-none text-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">REALIZADAS ({realizada.length})</a>
                                     <div className="collapse multi-collapse" id="multiCollapseExample1">
                                         <div id="task-list-two" className="task-list-items">
-                                            {realizada.map(({ asignada, descripcion, fecha, id, titulo }) => (
+                                            {realizada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
                                                 <Card
                                                     asignada={asignada}
                                                     descripcion={descripcion}
                                                     fecha={fecha}
                                                     id={id}
                                                     key={id}
-                                                    titulo={titulo} />
+                                                    titulo={titulo}
+                                                    estado={estado} />
                                             ))}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='col-4'>
+                        <div className='col-4 col-cancelada'>
                             <div className='board'>
                                 <div className="tasks">
                                     <a className="fs-5 text-decoration-none text-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">CANCELADAS ({cancelada.length})</a>
                                     <div className="collapse multi-collapse" id="multiCollapseExample1">
                                         <div id="task-list-three" className="task-list-items">
-                                            {cancelada.map(({ asignada, descripcion, fecha, id, titulo }) => (
+                                            {cancelada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
                                                 <Card
                                                     asignada={asignada}
                                                     descripcion={descripcion}
                                                     fecha={fecha}
                                                     id={id}
                                                     key={id}
-                                                    titulo={titulo} />
+                                                    titulo={titulo}
+                                                    estado={estado} />
                                             ))}
                                         </div>
                                     </div>
