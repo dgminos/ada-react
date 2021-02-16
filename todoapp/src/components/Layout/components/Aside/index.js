@@ -28,8 +28,8 @@ const Aside = () => {
             data-bs-parent="#accordionMenu"
           >
             <div className="accordion-body">
-              <Link to="/users">Ver</Link>
-              <Link to="/">Agregar</Link>
+              <Link to="/users/list">Ver</Link>
+              <Link to="/users/add">Agregar</Link>
             </div>
           </div>
         </div>
@@ -55,6 +55,7 @@ const Aside = () => {
             <div className="accordion-body">
               <Link to="/tasks/list">Ver</Link>
               <Link to="/tasks/add">Agregar</Link>
+
             </div>
           </div>
         </div>

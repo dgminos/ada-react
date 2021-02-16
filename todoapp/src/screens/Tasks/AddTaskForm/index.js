@@ -27,7 +27,7 @@ const AddTaskForm = () => {
     }
 
     const redirectToList = () => {
-        history.push("/tasks/list")
+        history.push('/tasks/list')
     }
 
     const enviarDatos = (event) => {
