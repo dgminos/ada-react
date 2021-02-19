@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, Main } from '../../../components'
+import { Layout, Main } from '../../../../components'
 import './tasks.css'
 import { tasksApi } from './api'
 import { Card } from '../Card'

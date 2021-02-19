@@ -1,5 +1,5 @@
 
-import { api } from '../../../utils/api'
+import { api } from '../../../../utils/api'
 //import './tasks.css'
 
 const Card = ({ id, titulo, fecha, descripcion, asignada, estado, onTaskStatusChange }) => {

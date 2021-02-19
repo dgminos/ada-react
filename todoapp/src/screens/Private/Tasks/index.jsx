@@ -1,27 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Layout, Main } from '../../components';
 import { AddTaskForm } from './AddTaskForm';
 
 import { List } from './List'
 
-
-
 const Tasks = () => {
 
-    const [tareas, setTareas] = useState([])
-
-    const Add = (newTask) => {
-        const { titulo, fecha, descripcion, asignada } = newTask
-        setTareas([tareas,
-            {
-                titulo: titulo,
-                fecha: fecha,
-                descripcion: descripcion,
-                asignada: asignada,
-            },
-        ]);
-    };
     return (
         <>
             <Router>
@@ -30,7 +14,6 @@ const Tasks = () => {
                     <Route path="/tasks" component={List} />
                 </Switch>
             </Router>
-
         </>
     )
 }

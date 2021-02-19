@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Footer = () => {
-    return(
-        <footer>Footer</footer>
+    return (
+        <footer className='footer footer-alt'>
+            <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
+        </footer>
     )
 }
 
-export {Footer}
+export { Footer }

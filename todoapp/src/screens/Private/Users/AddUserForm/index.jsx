@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Layout, Main } from '../../../components'
-import { api } from '../../../utils'
+import { Layout, Main } from '../../../../components'
+import { api } from '../../../../utils'
 
 const AddUserForm = () => {
 
@@ -11,8 +11,8 @@ const AddUserForm = () => {
     const [usuaries, setUsuaries] = useState({
         nombre: '',
         apellido: '',
-        correo: '',
-        contraseña: '',
+        email: '',
+        password: '',
     })
 
     const [error, setError] = useState(null);
@@ -34,7 +34,7 @@ const AddUserForm = () => {
         event.preventDefault()
         //console.log('enviando datos...' + tareas.titulo + ' ' + tareas.fecha)
         //console.log(tareas.descripcion);
-        if (!usuaries.nombre.trim() || !usuaries.apellido.trim() || !usuaries.correo.trim() || !usuaries.contraseña.trim()) {
+        if (!usuaries.nombre.trim() || !usuaries.apellido.trim() || !usuaries.email.trim() || !usuaries.password.trim()) {
             setError("Revise los campos")
             return
         }
@@ -42,15 +42,13 @@ const AddUserForm = () => {
         api.post('/users.json', {
             nombre: usuaries.nombre,
             apellido: usuaries.apellido,
-            correo: usuaries.correo,
-            contraseña: usuaries.contraseña,
+            email: usuaries.email,
+            password: usuaries.password,
         })
             .then(redirectToListUsers)
-            .catch(error => {
-                console.log(error)
-            })
-    }
 
+        setUsuaries('')
+    }
 
     return (
         <Layout >
@@ -68,16 +66,16 @@ const AddUserForm = () => {
                                     <input type='text' name='apellido' className='form-control' id='apellido' placeholder='Escriba su apellido' onChange={(event) => handleInputChange(event)} />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor='correo electronico'><b>Correo electrónico</b></label>
-                                    <input type='email' name='correo' className='form-control' id='correo' placeholder='Escriba su correo electrónico' onChange={(event) => handleInputChange(event)} />
+                                    <label htmlFor='email'><b>Email</b></label>
+                                    <input type='email' name='email' className='form-control' id='email' placeholder='Escriba su correo electrónico' onChange={(event) => handleInputChange(event)} />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor='contraseña'><b>Contraseña</b></label>
-                                    <input type='password' name='contraseña' className='form-control' id='contraseña' placeholder='Escriba su contraseña' onChange={(event) => handleInputChange(event)} />
+                                    <label htmlFor='password'><b>Contraseña</b></label>
+                                    <input type='password' name='password' className='form-control' id='password' placeholder='Escriba su contraseña' onChange={(event) => handleInputChange(event)} />
                                 </div>
                                 <div className='row'>
                                     <div className='col'>
-                                        <button className='btn btn-primary btn-agregar-usuarie mt-5' type='submit'>Agregar usuarie</button>
+                                        <button className='btn btn-primary btn-agregar-usuarie mt-5' type='submit'>Agregar</button>
                                     </div>
                                 </div>
                             </form>
