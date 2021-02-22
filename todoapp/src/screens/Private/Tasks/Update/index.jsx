@@ -2,7 +2,7 @@
 import { api } from '../../../../utils/api'
 //import './tasks.css'
 
-const Card = ({ id, titulo, fecha, descripcion, asignada, estado, onTaskStatusChange }) => {
+const Update = ({ id, titulo, fecha, descripcion, asignada, estado, onTaskStatusChange }) => {
 
     const handleClick = (newStatus) => {
         api.patch(`/tasks/${id}.json`, { estado: newStatus })
@@ -42,4 +42,4 @@ const Card = ({ id, titulo, fecha, descripcion, asignada, estado, onTaskStatusCh
     )
 }
 
-export { Card }
+export { Update }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { PencilFill, TrashFill } from 'react-bootstrap-icons'
+import { Link } from 'react-router-dom'
 
-const Table = ({ dataUser, handleClick }) => {
+const TableUsers = ({ dataUser, handleClick }) => {
     return (
 
         <div className='table-responsive'>
@@ -25,7 +26,7 @@ const Table = ({ dataUser, handleClick }) => {
                                 <td>{apellido} </td>
                                 <td>{email} </td>
                                 <td>{password} </td>
-                                <td><button className='btn btn-info'><PencilFill /></button></td>
+                                <td><Link to={`/users/update/${id}`} className='btn btn-info'><PencilFill /></Link></td>
                                 <td><button className='btn btn-danger' onClick={() => handleClick(id)}><TrashFill /></button></td>
                             </tr>
                         )
@@ -38,4 +39,4 @@ const Table = ({ dataUser, handleClick }) => {
     )
 }
 
-export { Table }
+export { TableUsers }

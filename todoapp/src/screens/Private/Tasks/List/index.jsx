@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Layout, Main } from '../../../../components'
 import './tasks.css'
 import { tasksApi } from './api'
-import { Card } from '../Card'
+import { Update } from '../Update'
 import { useHistory } from 'react-router-dom'
 
 
@@ -44,7 +44,7 @@ const List = () => {
                                     <div className='collapse multi-collapse' id='multiCollapseExample1'>
                                         <div id='task-list-one' className='task-list-items'>
                                             {pendiente.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
-                                                <Card
+                                                <Update
                                                     asignada={asignada}
                                                     descripcion={descripcion}
                                                     fecha={fecha}
@@ -67,7 +67,7 @@ const List = () => {
                                     <div className='collapse multi-collapse' id='multiCollapseExample1'>
                                         <div id='task-list-two' className='task-list-items'>
                                             {realizada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
-                                                <Card
+                                                <Update
                                                     asignada={asignada}
                                                     descripcion={descripcion}
                                                     fecha={fecha}
@@ -89,7 +89,7 @@ const List = () => {
                                     <div className='collapse multi-collapse' id='multiCollapseExample1'>
                                         <div id='task-list-three' className='task-list-items'>
                                             {cancelada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
-                                                <Card
+                                                <Update
                                                     asignada={asignada}
                                                     descripcion={descripcion}
                                                     fecha={fecha}

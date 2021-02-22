@@ -5,14 +5,12 @@ import { SignUp } from './SignUp'
 
 const Public = () => {
     return (
-        <>
-            <Router>
-                <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/signup" component={SignUp} />
-                </Switch>
-            </Router>
-        </>
+        <Router>
+            <Switch>
+                <Route path='/login' component={Login} />
+                <Route path='/signup' component={SignUp} />
+            </Switch>
+        </Router>
     )
 }
 

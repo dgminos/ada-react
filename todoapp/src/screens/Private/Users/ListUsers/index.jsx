@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Main } from '../../../../components'
-import { Table } from '../Table'
+import { TableUsers } from './components/TableUsers'
 import { api } from '../../../../utils'
 import { usersApi } from './api'
 
@@ -11,7 +11,7 @@ const ListUsers = () => {
     // FUNCION PARA REDIRECCIONAR EL BTN DE AGREGAR 
     const history = useHistory();
 
-    const redireccionarAAddTaskForm = () => {
+    const redireccionarAAddUsersForm = () => {
         history.push("/users/add");
     }
     //
@@ -23,7 +23,6 @@ const ListUsers = () => {
         usersApi.get()
             .then(response => {
                 setdataUser(response);
-                console.log(response)
             })
     }
 
@@ -33,14 +32,15 @@ const ListUsers = () => {
 
     const deleteUser = (id) => {
         api.delete(`/users/${id}.json`)
+            .then(() => fetchUsers())
     }
 
     return (
         <Layout>
-            <Main title='Usuaries' handleClick={redireccionarAAddTaskForm}>
+            <Main title='Usuaries' handleClick={redireccionarAAddUsersForm}>
                 <div className='container mt-5'>
                     <div className='row'>
-                        < Table dataUser={dataUser} handleClick={deleteUser} />
+                        <TableUsers dataUser={dataUser} handleClick={deleteUser} />
                     </div>
                 </div>
             </Main>

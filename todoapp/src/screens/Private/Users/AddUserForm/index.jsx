@@ -8,7 +8,7 @@ const AddUserForm = () => {
 
     let history = useHistory();
 
-    const [usuaries, setUsuaries] = useState({
+    const [usuarie, setUsuarie] = useState({
         nombre: '',
         apellido: '',
         email: '',
@@ -20,8 +20,8 @@ const AddUserForm = () => {
     const handleInputChange = (event) => {
         //console.log(event.target.name)
         //console.log(event.target.value)
-        setUsuaries({
-            ...usuaries,
+        setUsuarie({
+            ...usuarie,
             [event.target.name]: event.target.value
         })
     }
@@ -34,20 +34,20 @@ const AddUserForm = () => {
         event.preventDefault()
         //console.log('enviando datos...' + tareas.titulo + ' ' + tareas.fecha)
         //console.log(tareas.descripcion);
-        if (!usuaries.nombre.trim() || !usuaries.apellido.trim() || !usuaries.email.trim() || !usuaries.password.trim()) {
+        if (!usuarie.nombre.trim() || !usuarie.apellido.trim() || !usuarie.email.trim() || !usuarie.password.trim()) {
             setError("Revise los campos")
             return
         }
 
         api.post('/users.json', {
-            nombre: usuaries.nombre,
-            apellido: usuaries.apellido,
-            email: usuaries.email,
-            password: usuaries.password,
+            nombre: usuarie.nombre,
+            apellido: usuarie.apellido,
+            email: usuarie.email,
+            password: usuarie.password,
         })
             .then(redirectToListUsers)
 
-        setUsuaries('')
+        setUsuarie('')
     }
 
     return (
