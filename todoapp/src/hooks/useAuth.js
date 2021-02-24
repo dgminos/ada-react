@@ -43,7 +43,13 @@ const useAuth = () => {
     }
 
     const logout = () => {
-
+        firebaseAuth.auth().signOut()
+            .then(() => {
+                alert('Deslogueade correctamente')
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }
 
     useEffect(() => {
