@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { firebaseAuth } from '../utils/firebase-config'
+
 
 const useAuth = () => {
 
@@ -7,11 +9,17 @@ const useAuth = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [authMsgError, setAuthMsgError] = useState(null)
 
+
+    const history = useHistory()
+
+
     const login = (email, password) => {
         firebaseAuth.auth().signInWithEmailAndPassword(email, password)
             .then(({ user }) => {
                 setUser(user)
                 setIsAuthenticated(true)
+                localStorage.setItem('userToken', user.refreshToken)
+                history.go(0)
             })
             .catch(e => {
                 switch (e.code) {
@@ -26,10 +34,10 @@ const useAuth = () => {
     }
 
     const register = (email, password, nombreCompleto) => {
+
         firebaseAuth.auth().createUserWithEmailAndPassword(email, password)
             .then(({ user }) => {
                 setUser(user)
-                console.log(user)
                 user.updateProfile({ displayName: nombreCompleto })
             })
             .catch(e => {
@@ -45,16 +53,22 @@ const useAuth = () => {
     const logout = () => {
         firebaseAuth.auth().signOut()
             .then(() => {
-                alert('Deslogueade correctamente')
-            })
-            .catch((error) => {
+                alert('te has deslogueado exitosamente')
+            }).catch((error) => {
                 console.error(error)
-            })
+            });
+
     }
 
     useEffect(() => {
-        console.log(user);
-    }, [])
+        const token = localStorage.getItem('userToken');
+
+        console.log(token)
+        if (token && token !== '') {
+            setIsAuthenticated(true)
+        }
+    }, []);
+
     return { login, register, logout, user, isAuthenticated, authMsgError }
 }
 
