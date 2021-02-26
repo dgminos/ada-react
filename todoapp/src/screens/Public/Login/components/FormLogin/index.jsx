@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../../../../hooks/useAuth'
-import { Saludo } from '../../../../Saludo'
-
+import { useAuth } from 'hooks/useAuth'
 
 const FormLogin = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const { login, authMsgError, isAuthenticated } = useAuth()
+    const { login, authMsgError } = useAuth()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         login(email, password)
-        alert('logueado')
         setEmail('')
         setPassword('')
     }
@@ -22,10 +19,6 @@ const FormLogin = () => {
                 <div className='col-lg-5'>
                     <div className='card-login mt-5'>
                         <div className='card-header pt-4 pb-4 text-center bg-dark'>
-                            {
-                                isAuthenticated ? <Saludo /> : (<span></span>)
-
-                            }
                         </div>
                         <div className='card-body p-4'>
                             <div className='text-center w-75 m-auto'>

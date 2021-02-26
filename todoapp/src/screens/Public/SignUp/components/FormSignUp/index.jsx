@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../../../../hooks/useAuth'
+import { useAuth } from 'hooks/useAuth'
 
 const FormSignUp = () => {
 
@@ -25,7 +25,6 @@ const FormSignUp = () => {
                 <div className='col-lg-5'>
                     <div className='card-signup mt-5 shadow'>
                         <div className='card-header pt-4 pb-4 text-center bg-dark'>
-
                         </div>
                         <div className='card-body p-4'>
                             <div className='text-center w-75 m-auto'>
@@ -75,7 +74,7 @@ const FormSignUp = () => {
                                         placeholder='Repita su contraseña' />
                                 </div>
                                 {
-                                    (password !== confirmpass) ? <div className="alert alert-danger p-2 m-2" role="alert">Verifique la contraseña</div> : <span></span>
+                                    (password !== confirmpass) ? <div className="alert alert-danger p-2 m-2" role="alert">La contraseña no coincide</div> : <span></span>
                                 }
                                 <div className='form-group mb-3'>
                                     <div className='custom-control custom-checkbox'>
@@ -92,7 +91,7 @@ const FormSignUp = () => {
                                 </div>
                                 <div className="row mt-3">
                                     <div className="col-12 text-center">
-                                        <p className="text-muted">Ya tiene su cuenta? <Link to='/login' className='text-muted ml-1'><b>Ingresar</b></Link></p>
+                                        <p className="text-muted">Ya tiene su cuenta? <Link to='/' className='text-muted ml-1'><b>Ingresar</b></Link></p>
                                     </div>
                                 </div>
 
