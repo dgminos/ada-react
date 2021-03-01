@@ -1,17 +1,15 @@
+
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { firebaseAuth } from '../utils/firebase-config'
 
-
 const useAuth = () => {
 
     const [user, setUser] = useState({})
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [authMsgError, setAuthMsgError] = useState(null)
 
-
     const history = useHistory()
-
 
     const login = (email, password) => {
         firebaseAuth.auth().signInWithEmailAndPassword(email, password)

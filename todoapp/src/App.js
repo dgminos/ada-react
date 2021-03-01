@@ -1,16 +1,16 @@
 
-import './App.css';
-import { Private } from './screens/Private';
-import { Public } from './screens/Public';
+import { Public } from './screens/Public'
+import { Private } from './screens/Private'
 import { useAuth } from './hooks'
+import "./App.css";
 
 const App = () => {
-  const isAuthenticated = useAuth();
-  //const isAuthenticated = false;
 
-  return (
-    isAuthenticated ? <Private /> : < Public />
-  );
-}
+  const { isAuthenticated } = useAuth()
+
+  console.log(isAuthenticated)
+
+  return (isAuthenticated ? <Private /> : <Public />)
+};
 
 export default App;

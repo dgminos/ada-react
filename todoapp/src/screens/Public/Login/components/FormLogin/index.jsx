@@ -60,7 +60,7 @@ const FormLogin = () => {
                                 </div>
                                 <div className='row mt-3'>
                                     <div className='col-12 text-center'>
-                                        <p className='text-muted'>No tiene una cuenta? <Link to='/signup' className='text-muted ml-1'><b>Registrarse</b></Link ></p>
+                                        <p className='text-muted'>No tiene una cuenta? <Link to='/signup' className='text-muted ml-1'><b>Regístrese</b></Link ></p>
                                     </div>
                                 </div>
                             </form>
