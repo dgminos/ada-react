@@ -1,16 +1,15 @@
-
-import { Public } from './screens/Public'
-import { Private } from './screens/Private'
-import { useAuth } from './hooks'
+import React from 'react'
+import { AuthProvider } from "./contexts";
+import { AuthRoute } from 'screens';
 import "./App.css";
 
 const App = () => {
 
-  const { isAuthenticated } = useAuth()
-
-  console.log(isAuthenticated)
-
-  return (isAuthenticated ? <Private /> : <Public />)
+  return (
+    <AuthProvider>
+      <AuthRoute />
+    </AuthProvider>
+  )
 };
 
 export default App;

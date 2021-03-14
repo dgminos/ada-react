@@ -94,7 +94,6 @@ const FormSignUp = () => {
                                         <p className="text-muted">Ya tiene su cuenta? <Link to='/' className='text-muted ml-1'><b>Ingresar</b></Link></p>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                     </div>

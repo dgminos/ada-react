@@ -1,13 +1,12 @@
 
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Layout, Main } from '../../../../components'
-import { api } from '../../../../utils'
+import { Layout, Main } from 'components'
+import { api } from 'utils'
 
 const AddUserForm = () => {
 
     let history = useHistory();
-
     const [usuarie, setUsuarie] = useState({
         nombre: '',
         apellido: '',
@@ -18,8 +17,7 @@ const AddUserForm = () => {
     const [error, setError] = useState(null);
 
     const handleInputChange = (event) => {
-        //console.log(event.target.name)
-        //console.log(event.target.value)
+
         setUsuarie({
             ...usuarie,
             [event.target.name]: event.target.value
@@ -32,8 +30,6 @@ const AddUserForm = () => {
 
     const enviarDatos = (event) => {
         event.preventDefault()
-        //console.log('enviando datos...' + tareas.titulo + ' ' + tareas.fecha)
-        //console.log(tareas.descripcion);
         if (!usuarie.nombre.trim() || !usuarie.apellido.trim() || !usuarie.email.trim() || !usuarie.password.trim()) {
             setError("Revise los campos")
             return
@@ -46,6 +42,9 @@ const AddUserForm = () => {
             password: usuarie.password,
         })
             .then(redirectToListUsers)
+            .catch(error => {
+                console.log(error)
+            })
 
         setUsuarie('')
     }

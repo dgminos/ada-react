@@ -7,11 +7,9 @@ const FormLogin = () => {
     const [password, setPassword] = useState('')
     const { login, authMsgError } = useAuth()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         login(email, password)
-        setEmail('')
-        setPassword('')
     }
     return (
         <div className='container'>

@@ -1,16 +1,16 @@
-// import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
-// const AuthContext = createContext()
+const AuthContext = createContext()
 
-// const AuthProvider = ({ children }) => {
-//     const [user, setUser] = useState({});
-//     const [isAuthenticated, setIsAuthenticated] = useState(false);
+const AuthProvider = ({ children }) => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    return (
+        //provee datos - comparte el estado con la app
+        // value siempre recibe un objeto como dato, generalmente es un useState
+        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
 
-//     return (
-//         <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, user, setUser }}>
-//             {children}
-//         </AuthContext.Provider>
-//     )
-// }
-
-// export { AuthProvider, AuthContext }
+export { AuthProvider, AuthContext }
