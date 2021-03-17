@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Layout, Main } from 'components'
+import { Layout, Main } from '../../../../components'
 import { TableUsers } from './components'
-import { api } from 'utils'
+import { api } from '../../../../utils'
 import { usersApi } from './api'
 
 

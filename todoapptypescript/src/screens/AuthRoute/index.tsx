@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
-import { Public, Private } from '../'
-import { AuthContext } from 'contexts/AuthProvider';
+import { Public, Private } from '..'
+import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const AuthRoute = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Tasks } from '../Private/Tasks'
-import { Users } from '../Private/Users'
-import { Dashboard } from '../Private/Dashboard'
+import { Tasks } from './Tasks'
+import { Users } from './Users'
+import { Dashboard } from './Dashboard'
 
 
 const Private = () => {

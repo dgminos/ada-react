@@ -1,4 +1,4 @@
-import { AuthContext } from "contexts/AuthProvider"
+import { AuthContext } from "../contexts/AuthProvider"
 import { useState, useEffect, useContext } from "react"
 import { useHistory } from "react-router-dom"
 import { firebaseAuth } from '../utils/firebase-config'
