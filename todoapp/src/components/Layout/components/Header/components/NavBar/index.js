@@ -1,6 +1,5 @@
 import React from "react";
-import { Search } from "react-bootstrap-icons";
-import { Bell, ArrowLeft, Grid3x3GapFill, Gear, BoxArrowRight } from "react-bootstrap-icons";
+import { Search, Bell, ArrowLeft, Grid3x3GapFill, Gear, BoxArrowRight } from "react-bootstrap-icons";
 import { useHistory } from "react-router-dom";
 import avatar from "../../../../../../assets/img/avatar-1.jpg";
 import menuItems from "./data";
