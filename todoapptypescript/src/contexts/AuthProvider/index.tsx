@@ -1,46 +1,46 @@
 import React, { FC, createContext, useState, useEffect, Dispatch, SetStateAction } from 'react'
+import { user } from 'firebase'
 import { firebaseAuth } from '../../utils';
 
 
 type ContextType = {
     isAuthenticated?: boolean,
-    setIsAuthenticated?: Dispatch<SetStateAction<boolean>>
+    setIsAuthenticated?: Dispatch<SetStateAction<boolean>>,
+    user?: UserType,
+    setUser?: (user: UserType) => void
 }
 
-// type UserType = {
-//     uid: string,
-//     email: string,
-//     displayName: string,
-//     refreshToken: string
-
-
-
-// }
-
-
+type UserType = {
+    user: {
+        uid: string,
+        email: string,
+        displayName: string,
+        refreshToken: string | null
+    }
+}
 
 const AuthContext = createContext<ContextType>({})
 
 const AuthProvider: FC = ({ children }) => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    // const [user, setUser] = useState<{} | null>()
+    const [user, setUser] = useState<UserType | null>(null)
 
-    // useEffect(() => {
-    //     firebaseAuth.auth().onAuthStateChanged((user) => {
-    //         const token = localStorage.getItem('userToken');
-    //         // console.log(token)
-    //         if (token && token === user.refreshToken) {
-    //             setIsAuthenticated(true)
-    //             setUser(user)
-    //         }
-    //     })
-    // }, [setIsAuthenticated, setUser]);
+    useEffect(() => {
+        firebaseAuth.auth().onAuthStateChanged((userFirebase: UserType) => {
+            const token = localStorage.getItem('userToken');
+            // console.log(token)
+            if (token && token === userFirebase.refreshToken) {
+                setIsAuthenticated(true)
+                setUser(userFirebase)
+            }
+        })
+    }, [setIsAuthenticated, setUser]);
 
     return (
         //provee datos - comparte el estado con la app
         // value siempre recibe un objeto como dato, generalmente es un useState
-        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, user, setUser }}>
             {children}
         </AuthContext.Provider>
     )
