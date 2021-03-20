@@ -7,6 +7,16 @@ type ContextType = {
     setIsAuthenticated?: Dispatch<SetStateAction<boolean>>
 }
 
+// type UserType = {
+//     uid: string,
+//     email: string,
+//     displayName: string,
+//     refreshToken: string
+
+
+
+// }
+
 
 
 const AuthContext = createContext<ContextType>({})
@@ -14,18 +24,18 @@ const AuthContext = createContext<ContextType>({})
 const AuthProvider: FC = ({ children }) => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState()
+    // const [user, setUser] = useState<{} | null>()
 
-    useEffect(() => {
-        firebaseAuth.auth().onAuthStateChanged((user) => {
-            const token = localStorage.getItem('userToken');
-            // console.log(token)
-            if (token && token === user.refreshToken) {
-                setIsAuthenticated(true)
-                setUser(user)
-            }
-        })
-    }, [setIsAuthenticated, setUser]);
+    // useEffect(() => {
+    //     firebaseAuth.auth().onAuthStateChanged((user) => {
+    //         const token = localStorage.getItem('userToken');
+    //         // console.log(token)
+    //         if (token && token === user.refreshToken) {
+    //             setIsAuthenticated(true)
+    //             setUser(user)
+    //         }
+    //     })
+    // }, [setIsAuthenticated, setUser]);
 
     return (
         //provee datos - comparte el estado con la app

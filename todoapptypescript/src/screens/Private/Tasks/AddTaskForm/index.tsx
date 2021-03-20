@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Main } from '../../../../components'
 import './add.css'
 import { api } from '../../../../utils'
 
+type OnchangeEvent = {
+    onChange: VoidFunction
+}
 
+type OnSubmitEvent = {
+    onSubmit: VoidFunction
+}
 
-const AddTaskForm = () => {
+const AddTaskForm: FC = () => {
     let history = useHistory();
 
     const [tareas, setTareas] = useState({
@@ -16,9 +22,9 @@ const AddTaskForm = () => {
         asignada: '',
     })
 
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: OnchangeEvent) => {
         //console.log(event.target.name)
         //console.log(event.target.value)
         setTareas({
@@ -31,7 +37,7 @@ const AddTaskForm = () => {
         history.push('/tasks/list')
     }
 
-    const enviarDatos = (event) => {
+    const enviarDatos = (event: OnSubmitEvent) => {
         event.preventDefault()
         //console.log('enviando datos...' + tareas.titulo + ' ' + tareas.fecha)
         //console.log(tareas.descripcion);
