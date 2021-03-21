@@ -5,6 +5,14 @@ import { tasksApi } from './api'
 import { Update } from '../Update'
 import { useHistory } from 'react-router-dom'
 
+type TasksStates = {
+    asignada: string,
+    descripcion: string,
+    fecha: string,
+    id: string,
+    titulo: string,
+    estado: string
+}
 
 const List = () => {
 
@@ -16,9 +24,10 @@ const List = () => {
     }
     //
 
-    const [pendiente, setPendiente] = useState([])
-    const [realizada, setRealizada] = useState([])
-    const [cancelada, setCancelada] = useState([])
+
+    const [pendiente, setPendiente] = useState<TasksStates[]>([])
+    const [realizada, setRealizada] = useState<TasksStates[]>([])
+    const [cancelada, setCancelada] = useState<TasksStates[]>([])
 
     const fetchTasks = () => {
         tasksApi.get().then((response => {

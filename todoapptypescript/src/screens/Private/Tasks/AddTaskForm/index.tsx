@@ -4,13 +4,6 @@ import { Layout, Main } from '../../../../components'
 import './add.css'
 import { api } from '../../../../utils'
 
-type OnchangeEvent = {
-    onChange: VoidFunction
-}
-
-type OnSubmitEvent = {
-    onSubmit: VoidFunction
-}
 
 const AddTaskForm: FC = () => {
     let history = useHistory();
@@ -24,12 +17,14 @@ const AddTaskForm: FC = () => {
 
     const [error, setError] = useState('');
 
-    const handleInputChange = (event: OnchangeEvent) => {
+    const handleInputChange = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         //console.log(event.target.name)
         //console.log(event.target.value)
+        const { name, value } = event.currentTarget
         setTareas({
             ...tareas,
-            [event.target.name]: event.target.value
+            [name]: value //este name hace referencia a un campo determinado de los inputs. Toma un valor dinámico. Los corchetes indican que ese name va a venir de una variable
+            //Value=valor de los inputs. 
         })
     }
 
@@ -37,7 +32,7 @@ const AddTaskForm: FC = () => {
         history.push('/tasks/list')
     }
 
-    const enviarDatos = (event: OnSubmitEvent) => {
+    const enviarDatos = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         //console.log('enviando datos...' + tareas.titulo + ' ' + tareas.fecha)
         //console.log(tareas.descripcion);
@@ -77,11 +72,11 @@ const AddTaskForm: FC = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="textarea"><b>Descripción</b></label>
-                                    <textarea className="form-control" type='text' name='descripcion' id="textarea" rows="3" onChange={(event) => handleInputChange(event)}></textarea>
+                                    <textarea className="form-control" name='descripcion' id="textarea" onChange={handleInputChange}></textarea>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="asignada"><b>Asignada a:</b></label>
-                                    <select className="form-control" id="asignada" name='asignada' onChange={(event) => handleInputChange(event)}>
+                                    <select className="form-control" id="asignada" name='asignada' onChange={handleInputChange}>
                                         <option value='Juan Altamirano' >Juan Altamirano</option>
                                         <option value='Natalia Suarez'>Natalia Suarez</option>
                                         <option value='Gala Lantier'>Gala Lantier</option>

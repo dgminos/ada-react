@@ -16,11 +16,11 @@ const AddUserForm = () => {
 
     const [error, setError] = useState(null);
 
-    const handleInputChange = (event) => {
-
+    const handleInputChange = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = event.currentTarget
         setUsuarie({
             ...usuarie,
-            [event.target.name]: event.target.value
+            [name]: value
         })
     }
 

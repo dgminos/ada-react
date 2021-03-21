@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../../../../hooks'
+//import { useAuth } from '../../../../../hooks'
 
 const FormLogin = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const { login, authMsgError } = useAuth()
+    //const { login, authMsgError } = useAuth()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        login(email, password)
+        //login(email, password)
     }
     return (
         <div className='container'>
@@ -51,7 +51,7 @@ const FormLogin = () => {
                                     </div>
                                 </div>
                                 {
-                                    authMsgError != null ? (<div className="alert alert-danger p-2 m-2" role="alert"> {authMsgError} </div>) : (<span></span>)
+                                    //authMsgError != null ? (<div className="alert alert-danger p-2 m-2" role="alert"> {authMsgError} </div>) : (<span></span>)
                                 }
                                 <div className='form-group mb-0 text-center'>
                                     <button className='btn btn-primary' type='submit'>Ingresar</button>

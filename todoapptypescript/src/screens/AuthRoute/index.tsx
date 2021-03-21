@@ -1,10 +1,10 @@
 
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { Public, Private } from '..'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 
-const AuthRoute = () => {
+const AuthRoute: FC = () => {
 
     //para acceder a los datos. En el useContext le paso que contexto voy a usar
     const { isAuthenticated } = useContext(AuthContext)

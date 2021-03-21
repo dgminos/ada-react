@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../../../../hooks'
+//import { useAuth } from '../../../../../hooks'
 
 const FormSignUp = () => {
 
@@ -9,11 +9,11 @@ const FormSignUp = () => {
     const [password, setPassword] = useState('')
     const [confirmpass, setConfirmPass] = useState('')
 
-    const { register } = useAuth()
+    //const { register } = useAuth()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        register(email, password, nombreCompleto, confirmpass)
+        // register(email, password, nombreCompleto, confirmpass)
         setNombreCompleto('')
         setEmail('')
         setPassword('')

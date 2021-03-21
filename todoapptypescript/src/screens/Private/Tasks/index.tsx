@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AddTaskForm } from './AddTaskForm';
 import { List } from './List'
 
-const Tasks = () => {
+const Tasks: FC = () => {
 
     return (
         <>
