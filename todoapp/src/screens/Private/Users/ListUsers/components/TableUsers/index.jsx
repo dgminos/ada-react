@@ -3,6 +3,7 @@ import { PencilFill, TrashFill } from 'react-bootstrap-icons'
 import { Link } from 'react-router-dom'
 
 const TableUsers = ({ dataUser, handleClick }) => {
+    //console.log(dataUser)
     return (
 
         <div className='table-responsive'>
