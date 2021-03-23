@@ -1,9 +1,12 @@
 import React from 'react'
+import { HeartFill } from "react-bootstrap-icons";
 
 const Footer = () => {
+    let today = new Date();
+    let year = today.getFullYear();
     return (
         <footer className='footer footer-alt text-center mb-5 mt-5'>
-            <script>document.write(new Date().getFullYear())</script> © ADA - ada.com.ar
+            <p>App hecha con < HeartFill className='text-danger' /> - {year} - ©<a href="https://www.adaitw.org">Ada Site</a></p>
         </footer>
     )
 }
