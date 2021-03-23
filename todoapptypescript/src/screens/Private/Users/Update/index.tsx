@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { Layout, Main } from '../../../../components'
 import { api } from '../../../../utils'
 
-const Update = () => {
+type UserId = {
+    id: string
+}
+
+const Update: FC = () => {
 
     const [user, setUser] = useState({
         nombre: '',
@@ -14,15 +18,15 @@ const Update = () => {
     const history = useHistory();
 
     //DESTRUCTURACION DE DATOS
-    let { id } = useParams();
+    let { id } = useParams<UserId>();
     const { apellido, email, nombre } = user
 
     //CAPTURO LOS DATOS DE LOS INPUT
-
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+        const { name, value } = event.currentTarget
         setUser({
             ...user,
-            [event.target.name]: event.target.value
+            [name]: value
         })
     }
 
@@ -44,7 +48,7 @@ const Update = () => {
     }, []);
 
     //EDITO LOS DATOS DEL USUARIO
-    const updateUser = async (e) => {
+    const updateUser = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const userUpdate = {
             apellido: apellido,

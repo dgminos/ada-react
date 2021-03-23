@@ -1,12 +1,12 @@
 import React from "react";
-//import { AuthProvider } from "@contexts";
+import { AuthProvider } from "@contexts";
 import { AuthRoute } from "@screens";
 
 const App = () => {
   return (
-    //<AuthProvider>
-    <AuthRoute />
-    //</AuthProvider>
+    <AuthProvider>
+      <AuthRoute />
+    </AuthProvider>
   );
 };
 

@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Main } from '../../../../components'
 import { api } from '../../../../utils'
 
-const AddUserForm = () => {
+const AddUserForm: FC = () => {
 
     let history = useHistory();
     const [usuarie, setUsuarie] = useState({
@@ -14,7 +14,7 @@ const AddUserForm = () => {
         password: '',
     })
 
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
 
     const handleInputChange = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = event.currentTarget
@@ -28,7 +28,7 @@ const AddUserForm = () => {
         history.push("/users/list")
     }
 
-    const enviarDatos = (event) => {
+    const enviarDatos = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (!usuarie.nombre.trim() || !usuarie.apellido.trim() || !usuarie.email.trim() || !usuarie.password.trim()) {
             setError("Revise los campos")
@@ -46,7 +46,7 @@ const AddUserForm = () => {
                 console.log(error)
             })
 
-        setUsuarie('')
+        //setUsuarie('')
     }
 
     return (

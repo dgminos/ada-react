@@ -72,7 +72,7 @@ const AddTaskForm: FC = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="textarea"><b>Descripción</b></label>
-                                    <textarea className="form-control" name='descripcion' id="textarea" onChange={handleInputChange}></textarea>
+                                    <textarea className="form-control" name='descripcion' rows={3} id="textarea" onChange={handleInputChange}></textarea>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="asignada"><b>Asignada a:</b></label>

@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Main } from '../../../../components'
 import { TableUsers } from './components'
 import { api } from '../../../../utils'
 import { usersApi } from './api'
 
+type UserFirebase = {
+    apellido: string,
+    email: string,
+    id: string,
+    nombre: string,
+    password: string
+}
 
-const ListUsers = () => {
+const ListUsers: FC = () => {
 
     // FUNCION PARA REDIRECCIONAR EL BTN DE AGREGAR 
     const history = useHistory();
@@ -16,7 +23,7 @@ const ListUsers = () => {
     }
     //
 
-    const [dataUser, setdataUser] = useState([])
+    const [dataUser, setdataUser] = useState<UserFirebase[]>([])
 
 
     const fetchUsers = () => {
@@ -30,7 +37,8 @@ const ListUsers = () => {
         fetchUsers()
     }, []);
 
-    const deleteUser = (id) => {
+    //BTN DELETE
+    const deleteUser = (id: string) => {
         api.delete(`/users/${id}.json`)
             .then(() => fetchUsers())
     }
@@ -40,7 +48,7 @@ const ListUsers = () => {
             <Main title='Usuaries' handleClick={redireccionarAAddUsersForm}>
                 <div className='container mt-5'>
                     <div className='row'>
-                        <TableUsers dataUser={dataUser} handleClick={deleteUser} />
+                        <TableUsers dataUser={dataUser} handleClickDelete={deleteUser} />
                     </div>
                 </div>
             </Main>

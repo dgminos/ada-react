@@ -51,7 +51,7 @@ const NavBar: FC = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="english"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -70,24 +70,24 @@ const NavBar: FC = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="notificacion">
                 <Bell />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="relleno">
                 <Grid3x3GapFill />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="configuracion">
                 <Gear />
               </a>
             </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle d-flex align-items-center"
-                href="#"
+                href="avatar"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -103,12 +103,12 @@ const NavBar: FC = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="accion">
                     Action
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="otra accion">
                     Another action
                   </a>
                 </li>
@@ -116,7 +116,7 @@ const NavBar: FC = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="algo mas">
                     Something else here
                   </a>
                 </li>

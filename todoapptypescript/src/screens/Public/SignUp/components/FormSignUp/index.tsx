@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom'
 //import { useAuth } from '../../../../../hooks'
 
-const FormSignUp = () => {
+const FormSignUp: FC = () => {
 
     const [nombreCompleto, setNombreCompleto] = useState('')
     const [email, setEmail] = useState('')
@@ -11,7 +11,7 @@ const FormSignUp = () => {
 
     //const { register } = useAuth()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         // register(email, password, nombreCompleto, confirmpass)
         setNombreCompleto('')
@@ -38,7 +38,6 @@ const FormSignUp = () => {
                                         onChange={(e) => setNombreCompleto(e.target.value)}
                                         className='form-control'
                                         type='text' id='nombreCompleto'
-                                        required=''
                                         value={nombreCompleto}
                                         placeholder='Ingrese su nombre completo' />
                                 </div>
@@ -49,7 +48,6 @@ const FormSignUp = () => {
                                         className='form-control'
                                         type='email'
                                         id='emailaddress'
-                                        required=''
                                         value={email}
                                         placeholder='Ingrese su correo electrónico' />
                                 </div>

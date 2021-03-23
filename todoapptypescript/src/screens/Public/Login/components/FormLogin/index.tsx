@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 //import { useAuth } from '../../../../../hooks'
 
-const FormLogin = () => {
+const FormLogin: FC = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     //const { login, authMsgError } = useAuth()
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         //login(email, password)
     }
@@ -25,17 +25,16 @@ const FormLogin = () => {
                             </div>
                             <form onSubmit={handleSubmit}>
                                 <div className='form-group'>
-                                    <label for='emailaddress'>Correo electrónico</label>
+                                    <label htmlFor='emailaddress'>Correo electrónico</label>
                                     <input onChange={(e) => setEmail(e.target.value)}
                                         className='form-control'
                                         type='email'
                                         id='emailaddress'
-                                        required=''
                                         value={email}
                                         placeholder='Ingrese su correo electrónico' />
                                 </div>
                                 <div className='form-group'>
-                                    <label for='password'>Contraseña</label>
+                                    <label htmlFor='password'>Contraseña</label>
                                     <a href='pages-recoverpw.html' className='text-muted float-right'><small>Olvidó su contraseña?</small></a>
                                     <input onChange={(e) => setPassword(e.target.value)}
                                         type='password'
@@ -47,7 +46,7 @@ const FormLogin = () => {
                                 <div className='form-group mb-3'>
                                     <div className='custom-control custom-checkbox'>
                                         <input type='checkbox' className='custom-control-input me-3' id='checkbox-login' />
-                                        <label className='custom-control-label' for='checkbox-signin'>Recordarme</label>
+                                        <label className='custom-control-label' htmlFor='checkbox-signin'>Recordarme</label>
                                     </div>
                                 </div>
                                 {
