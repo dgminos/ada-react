@@ -6,16 +6,16 @@ import { firebaseAuth } from '../../utils';
 type ContextType = {
     isAuthenticated?: boolean,
     setIsAuthenticated?: Dispatch<SetStateAction<boolean>>,
-    user?: user.User | null,
-    setUser?: (user: user.User | null) => void
+    user?: user.User,
+    setUser: null | ((user: user.User) => void)
 }
 
-const AuthContext = createContext<ContextType>({})
+const AuthContext = createContext<ContextType>({ setUser: null })
 
 const AuthProvider: FC = ({ children }) => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState<user.User | null>(null)
+    const [user, setUser] = useState<user.User>()
 
     useEffect(() => {
         firebaseAuth.auth().onAuthStateChanged((userFirebase: user.User | null) => {
@@ -23,7 +23,7 @@ const AuthProvider: FC = ({ children }) => {
             console.log(token)
             if (token && token === userFirebase!.refreshToken) {
                 setIsAuthenticated(true)
-                setUser(userFirebase)
+                if (userFirebase) setUser(userFirebase)
             }
         })
     }, [setIsAuthenticated, setUser]);

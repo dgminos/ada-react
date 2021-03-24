@@ -1,13 +1,20 @@
 import { AuthContext } from "../contexts/AuthProvider"
-import { useState, useContext } from "react"
+import { useState, useContext, Dispatch, SetStateAction } from "react"
 import { useHistory } from "react-router-dom"
 import { firebaseAuth } from '../utils/firebase-config'
+import user from 'firebase'
 
+type ContextType = {
+    isAuthenticated?: boolean,
+    setIsAuthenticated?: Dispatch<SetStateAction<boolean>>,
+    user?: user.User,
+    setUser: null | ((user: user.User) => void)
+}
 
 const useAuth = () => {
 
     const [authMsgError, setAuthMsgError] = useState('')
-    const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext)
+    const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext<ContextType>(AuthContext)
 
     const history = useHistory()
 
@@ -15,7 +22,8 @@ const useAuth = () => {
     const login = (email: string, password: string) => {
         firebaseAuth.auth().signInWithEmailAndPassword(email, password)
             .then(({ user }) => {
-                setUser(user)
+                if (user) setUser(user)
+
                 setIsAuthenticated(true)
                 localStorage.setItem('userToken', user.refreshToken)
                 history.go(0)
