@@ -22,9 +22,9 @@ const List = () => {
 
     const fetchTasks = () => {
         tasksApi.get().then((response => {
-            setPendiente(response.filter(t => t.estado == 'pendiente'))
-            setRealizada(response.filter(t => t.estado == 'realizada'))
-            setCancelada(response.filter(t => t.estado == 'cancelada'))
+            // setPendiente(response.filter(t => t.estado == 'pendiente'))
+            // setRealizada(response.filter(t => t.estado == 'realizada'))
+            // setCancelada(response.filter(t => t.estado == 'cancelada'))
         }))
     }
 
@@ -43,7 +43,7 @@ const List = () => {
                                     <a className='fs-5 text-decoration-none text-dark' data-bs-toggle='collapse' href='#multiCollapseExample1' role='button' aria-expanded='false' aria-controls='multiCollapseExample1'>PENDIENTES ({pendiente.length})</a>
                                     <div className='collapse multi-collapse' id='multiCollapseExample1'>
                                         <div id='task-list-one' className='task-list-items'>
-                                            {pendiente.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
+                                            {/* {pendiente.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
                                                 <Update
                                                     asignada={asignada}
                                                     descripcion={descripcion}
@@ -54,7 +54,7 @@ const List = () => {
                                                     estado={estado}
                                                     onTaskStatusChange={fetchTasks}
                                                 />
-                                            ))}
+                                            ))} */}
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@ const List = () => {
                                     <a className='fs-5 text-decoration-none text-dark' data-bs-toggle='collapse' href='#multiCollapseExample1' role='button' aria-expanded='false' aria-controls='multiCollapseExample1'>REALIZADAS ({realizada.length})</a>
                                     <div className='collapse multi-collapse' id='multiCollapseExample1'>
                                         <div id='task-list-two' className='task-list-items'>
-                                            {realizada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
+                                            {/* {realizada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
                                                 <Update
                                                     asignada={asignada}
                                                     descripcion={descripcion}
@@ -76,7 +76,7 @@ const List = () => {
                                                     titulo={titulo}
                                                     estado={estado}
                                                     onTaskStatusChange={fetchTasks} />
-                                            ))}
+                                            ))} */}
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@ const List = () => {
                                     <a className='fs-5 text-decoration-none text-dark' data-bs-toggle='collapse' href='#multiCollapseExample1' role='button' aria-expanded='false' aria-controls='multiCollapseExample1'>CANCELADAS ({cancelada.length})</a>
                                     <div className='collapse multi-collapse' id='multiCollapseExample1'>
                                         <div id='task-list-three' className='task-list-items'>
-                                            {cancelada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
+                                            {/* {cancelada.map(({ asignada, descripcion, fecha, id, titulo, estado }) => (
                                                 <Update
                                                     asignada={asignada}
                                                     descripcion={descripcion}
@@ -98,7 +98,7 @@ const List = () => {
                                                     titulo={titulo}
                                                     estado={estado}
                                                     onTaskStatusChange={fetchTasks} />
-                                            ))}
+                                            ))} */}
                                         </div>
                                     </div>
                                 </div>

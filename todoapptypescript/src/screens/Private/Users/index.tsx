@@ -11,7 +11,7 @@ const Users = () => {
                 <Switch>
                     <Route path="/users/add" component={AddUserForm} />
                     <Route path="/users/list" component={ListUsers} />
-                    <Route path='/users/update/:id' component={Update} />
+                    {/* <Route path='/users/update/:id' component={Update} /> */}
                 </Switch>
             </Router>
 

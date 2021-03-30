@@ -14,9 +14,9 @@ const AddUserForm = () => {
         password: '',
     })
 
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
 
         setUsuarie({
             ...usuarie,
@@ -28,7 +28,7 @@ const AddUserForm = () => {
         history.push("/users/list")
     }
 
-    const enviarDatos = (event) => {
+    const enviarDatos = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (!usuarie.nombre.trim() || !usuarie.apellido.trim() || !usuarie.email.trim() || !usuarie.password.trim()) {
             setError("Revise los campos")
@@ -46,7 +46,7 @@ const AddUserForm = () => {
                 console.log(error)
             })
 
-        setUsuarie('')
+        // setUsuarie({})
     }
 
     return (
@@ -58,19 +58,19 @@ const AddUserForm = () => {
                             <form className='form-agregar-usuarie mt-5' onSubmit={enviarDatos}>
                                 <div className='form-group'>
                                     <label htmlFor='nombre'><b>Nombre</b></label>
-                                    <input type='text' name='nombre' className='form-control' id='nombre' placeholder='Escriba su nombre' onChange={(event) => handleInputChange(event)} />
+                                    <input type='text' name='nombre' className='form-control' id='nombre' placeholder='Escriba su nombre' onChange={handleInputChange} />
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='apellido'><b>Apellido</b></label>
-                                    <input type='text' name='apellido' className='form-control' id='apellido' placeholder='Escriba su apellido' onChange={(event) => handleInputChange(event)} />
+                                    <input type='text' name='apellido' className='form-control' id='apellido' placeholder='Escriba su apellido' onChange={handleInputChange} />
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='email'><b>Email</b></label>
-                                    <input type='email' name='email' className='form-control' id='email' placeholder='Escriba su correo electrónico' onChange={(event) => handleInputChange(event)} />
+                                    <input type='email' name='email' className='form-control' id='email' placeholder='Escriba su correo electrónico' onChange={handleInputChange} />
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='password'><b>Contraseña</b></label>
-                                    <input type='password' name='password' className='form-control' id='password' placeholder='Escriba su contraseña' onChange={(event) => handleInputChange(event)} />
+                                    <input type='password' name='password' className='form-control' id='password' placeholder='Escriba su contraseña' onChange={handleInputChange} />
                                 </div>
                                 <div className='row'>
                                     <div className='col'>

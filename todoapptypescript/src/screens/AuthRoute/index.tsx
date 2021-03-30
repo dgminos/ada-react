@@ -11,8 +11,7 @@ const AuthRoute = () => {
 
     return (
         <div>
-            { isAuthenticated ? <Private /> : <Public />
-            }
+            { isAuthenticated ? <Private /> : <Public /> }
         </div>
     );
 }
